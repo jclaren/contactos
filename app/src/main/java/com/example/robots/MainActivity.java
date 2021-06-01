@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (screen != "home"){
+                    return;
+                }
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 System.out.println("*** Name: " + contact.name);
                 Global.currentContact = contact;
