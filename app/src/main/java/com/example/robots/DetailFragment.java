@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class DetailFragment extends DialogFragment {
     TextView txt_name;
+    TextView txt_email;
     View vista;
 
     public DetailFragment() {
@@ -34,8 +35,15 @@ public class DetailFragment extends DialogFragment {
                              Bundle savedInstanceState) {
 
         vista = (RelativeLayout) inflater.inflate(R.layout.fragment_detail, container, false);
+        fillValues();
+
+        return vista;
+    }
+
+     void fillValues(){
         txt_name = vista.findViewById(R.id.detail_name);
         txt_name.setText(Global.currentContact.name);
-        return vista;
+        txt_email = vista.findViewById(R.id.detail_email);
+        txt_email.setText(Global.currentContact.email);
     }
 }

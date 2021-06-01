@@ -8,20 +8,44 @@
     android:padding="20dp"
     android:orientation="vertical">
 
+    <!-- Nombre -->
     <TextView
-        android:layout_width="86dp"
-        android:layout_height="42dp"
+        android:id="@+id/lbl_name"
+        android:layout_width="85dp"
+        android:layout_height="wrap_content"
         android:padding="5dp"
         android:text="Nombre"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/detail_name"
         android:layout_width="273dp"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:padding="5dp"
-        android:text="UserName" />
+        android:text="" />
+
+    <!-- Email -->
+    <TextView
+        android:id="@+id/lbl_email"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_name"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Email"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detail_email"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_name"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="1dp"
+        android:padding="5dp"
+        android:text="" />
 
 
 </RelativeLayout>
