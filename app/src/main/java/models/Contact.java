@@ -31,13 +31,10 @@ public class Contact {
                                                final ArrayList<Contact> contacts,
                                                final MainActivity _interface) {
         String url = "https://jsonplaceholder.typicode.com/users";
-        System.out.println("***" + url);
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        System.out.println("*** respuesta:" + response );
-                            System.out.println("*** cumple" );
                             try {
                                 JSONArray list = response;
                                 for (int i=0; i < list.length(); i++) {
@@ -46,14 +43,12 @@ public class Contact {
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                System.out.println("*** " + e );
                             }
                             _interface.refreshList();
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println("*** " + error );
                     }
                 });
         o.addToRequestQueue(jsonObjectRequest);
