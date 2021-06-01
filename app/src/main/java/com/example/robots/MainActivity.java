@@ -48,16 +48,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (screen == "detail"){
-            Intent intent = getIntent();
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-            finish();
-            startActivity(intent);
+            backHome();
         }else{
-            Intent startMain = new Intent(Intent.ACTION_MAIN);
-            startMain.addCategory(Intent.CATEGORY_HOME);
-            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(startMain);
+            minimizeApp();
         }
+    }
+
+    void backHome(){
+        Intent intent = getIntent();
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        startActivity(intent);
+    }
+
+    void minimizeApp(){
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
     }
 
     void openDetail(Contact contact){
