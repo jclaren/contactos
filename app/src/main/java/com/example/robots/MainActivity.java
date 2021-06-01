@@ -6,10 +6,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import adapters.ContactAdapter;
-import adapters.RobotAdapter;
 import helpers.QueueUtils;
 import models.Contact;
-import models.Robot;
 
 public class MainActivity extends AppCompatActivity {
 
