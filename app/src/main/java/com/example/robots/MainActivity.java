@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 openDetail(contact);
-
             }
         });
     }

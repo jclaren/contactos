@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import helpers.QueueUtils;
+
+import com.example.robots.Global;
 import com.example.robots.MainActivity;
 
 public class Contact {
@@ -30,10 +32,10 @@ public class Contact {
 
     public static void injectContactsFromCloud(final QueueUtils.QueueObject o,
                                                final ArrayList<Contact> contacts,
-                                               final MainActivity _interface) {
-        String url = "https://jsonplaceholder.typicode.com/users";
+                                               final MainActivity _interface){
+
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                (Request.Method.GET, Global.urlUsers, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
                             try {
@@ -53,6 +55,7 @@ public class Contact {
                             }
                             _interface.refreshList();
                     }
+
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -60,5 +63,7 @@ public class Contact {
                 });
         o.addToRequestQueue(jsonObjectRequest);
     }
+
+
 
 }
