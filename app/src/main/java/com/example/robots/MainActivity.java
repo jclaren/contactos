@@ -2,6 +2,8 @@ package com.example.robots;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import java.util.ArrayList;
 
@@ -27,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         Contact.injectContactsFromCloud(queue, items, this);
         contactAdapter = new ContactAdapter(this, items);
         contactList.setAdapter(contactAdapter);
+        contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Contact contact = (Contact) parent.getItemAtPosition(position);
+                System.out.println("*** Name: " + contact.name);
+            }
+        });
     }
     public void refreshList(){
         if ( contactAdapter!= null ) {
