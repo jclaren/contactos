@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:id="@+id/main">
     <ListView
-        android:id="@+id/robotList"
+        android:id="@+id/contactList"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>

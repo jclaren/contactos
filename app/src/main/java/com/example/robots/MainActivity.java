@@ -11,7 +11,7 @@ import models.Contact;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView robotList;
+    ListView contactList;
     ContactAdapter contactAdapter;
     QueueUtils.QueueObject queue = null;
     ArrayList<Contact> items;
@@ -21,12 +21,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        robotList = findViewById(R.id.robotList);
+        contactList = findViewById(R.id.contactList);
         queue = QueueUtils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
         Contact.injectContactsFromCloud(queue, items, this);
         contactAdapter = new ContactAdapter(this, items);
-        robotList.setAdapter(contactAdapter);
+        contactList.setAdapter(contactAdapter);
     }
     public void refreshList(){
         if ( contactAdapter!= null ) {
