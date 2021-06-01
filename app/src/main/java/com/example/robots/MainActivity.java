@@ -1,6 +1,7 @@
 package com.example.robots;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 System.out.println("*** Name: " + contact.name);
 
-                DetailFragment detailFragment = new DetailFragment();
-                detailFragment.show(getSupportFragmentManager(), "Detalle del contacto");
+                FragmentTransaction ft;
+                ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.main , new DetailFragment());
+                ft.commit();
             }
         });
     }
