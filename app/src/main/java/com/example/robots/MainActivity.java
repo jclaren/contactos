@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import adapters.ContactAdapter;
 import helpers.QueueUtils;
 import models.Contact;
+import com.example.robots.Global;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 System.out.println("*** Name: " + contact.name);
+
+                Global.currentContact = contact;
 
                 FragmentTransaction ft;
                 ft = getSupportFragmentManager().beginTransaction();
