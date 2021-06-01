@@ -5,7 +5,7 @@ import androidx.fragment.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DetailFragment extends DialogFragment {
@@ -33,7 +33,7 @@ public class DetailFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        vista = (LinearLayout) inflater.inflate(R.layout.fragment_detail, container, false);
+        vista = (RelativeLayout) inflater.inflate(R.layout.fragment_detail, container, false);
         txt_name = vista.findViewById(R.id.detail_name);
         txt_name.setText(Global.currentContact.name);
         return vista;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -8,37 +8,20 @@
     android:padding="20dp"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_width="86dp"
+        android:layout_height="42dp"
         android:padding="5dp"
-        android:text="UserName"
-        android:id="@+id/detail_name"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
-        android:text="Nombre" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
-        android:text="Email" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
-        android:text="Direccion" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
-        android:text="Telefono" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
-        android:text="Sitio Web" />
+        android:text="Nombre"
+        android:textStyle="bold"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/detail_name"
+        android:layout_width="273dp"
+        android:layout_height="56dp"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:text="UserName" />
+
+
+</RelativeLayout>
