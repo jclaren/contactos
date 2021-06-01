@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if (screen == "detail"){
             Intent intent = getIntent();
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
             finish();
             startActivity(intent);
         }else{
