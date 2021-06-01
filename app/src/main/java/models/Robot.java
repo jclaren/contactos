@@ -30,34 +30,26 @@ public class Robot {
                                                final ArrayList<Robot> contactos,
                                                final MainActivity _interface) {
         String url = "https://fipo.equisd.com/api/users.json";
-        System.out.println("*** Consultando");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
                     @Override
                     public void onResponse(JSONObject response) {
-                        System.out.println("*** Respuesta:" + response);
-                        if (response.has("data")) {
+                        if (response.has("objects")) {
                             try {
-                                JSONArray list = response.getJSONArray("data");
+                                JSONArray list = response.getJSONArray("objects");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
                                     contactos.add(new Robot(o.getString("first_name"),  o.getString("last_name")));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
-                                System.out.println("*** catch");
                             }
-                            System.out.println("*** fin metodo");
-                            _interface.refreshList(); // Esta función debemos implementarla
-                            // en nuestro activity
+                            _interface.refreshList();
                         }
                     }
                 }, new Response.ErrorListener() {
-
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println("***"  + error);
                     }
                 });
         o.addToRequestQueue(jsonObjectRequest);
