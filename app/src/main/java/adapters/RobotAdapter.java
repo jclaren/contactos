@@ -13,8 +13,8 @@ import models.Robot;
 public class RobotAdapter extends ArrayAdapter<Robot> {
     Context context;
     private class ViewHolder {
-        TextView phone;
-        TextView nickname;
+        TextView first_name;
+        TextView last_name;
 
         private ViewHolder() {
         }
@@ -30,14 +30,14 @@ public class RobotAdapter extends ArrayAdapter<Robot> {
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.robot_item, null);
             holder = new ViewHolder();
-            holder.phone = (TextView) convertView.findViewById(R.id.phone);
-            holder.nickname = (TextView) convertView.findViewById(R.id.nickname);
+            holder.first_name = (TextView) convertView.findViewById(R.id.first_name);
+            holder.last_name = (TextView) convertView.findViewById(R.id.last_name);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.phone.setText(rowItem.phone);
-        holder.nickname.setText(rowItem.nickname);
+        holder.first_name.setText(rowItem.first_name);
+        holder.last_name.setText(rowItem.last_name);
         return convertView;
     }
 }

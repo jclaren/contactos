@@ -1,12 +1,9 @@
 package com.example.robots;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.ListView;
-
 import java.util.ArrayList;
-
 import adapters.RobotAdapter;
 import helpers.QueueUtils;
 import models.Robot;
@@ -20,12 +17,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("**** Carga ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         robotList = findViewById(R.id.robotList);
         queue = QueueUtils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
+        System.out.println("**** Inyectando ");
         Robot.injectContactsFromCloud(queue, items, this);
         robotAdapter = new RobotAdapter(this, items);
         robotList.setAdapter(robotAdapter);

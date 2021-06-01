@@ -13,42 +13,42 @@ import helpers.QueueUtils;
 import com.example.robots.MainActivity;
 
 public class Robot {
-    public String phone;
-    public String nickname;
+    public String first_name;
+    public String last_name;
 
-    public Robot(String _phone, String _nickname) {
-        this.phone = _phone;
-        this.nickname = _nickname;
+    public Robot(String _first_name, String _last_name) {
+        this.first_name = _first_name;
+        this.last_name = _last_name;
     }
 
     public static ArrayList getCollection() {
         ArrayList<Robot> collection = new ArrayList<>();
-        collection.add(new Robot("981999923", "Bichito"));
-        collection.add(new Robot("9859913923", "Plaga"));
-        collection.add(new Robot("981914213", "Libelula"));
+        collection.add(new Robot("Juan", "Bichito"));
         return collection;
     }
     public static void injectContactsFromCloud(final QueueUtils.QueueObject o,
                                                final ArrayList<Robot> contactos,
                                                final MainActivity _interface) {
-        String url = "http://fipo.equisd.com/api/users.json";
+        String url = "https://fipo.equisd.com/api/users.json";
+        System.out.println("*** Consultando");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
+                        System.out.println("*** Respuesta:" + response);
                         if (response.has("data")) {
-
                             try {
                                 JSONArray list = response.getJSONArray("data");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
                                     contactos.add(new Robot(o.getString("first_name"),  o.getString("last_name")));
                                 }
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                System.out.println("*** catch");
                             }
+                            System.out.println("*** fin metodo");
                             _interface.refreshList(); // Esta función debemos implementarla
                             // en nuestro activity
                         }
@@ -57,7 +57,7 @@ public class Robot {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        System.out.println("***"  + error);
                     }
                 });
         o.addToRequestQueue(jsonObjectRequest);
