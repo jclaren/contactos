@@ -1,20 +1,16 @@
 package com.example.robots;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import java.util.ArrayList;
-
 import adapters.ContactAdapter;
 import helpers.QueueUtils;
 import models.Contact;
-import com.example.robots.Global;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     QueueUtils.QueueObject queue = null;
     ArrayList<Contact> items;
     FragmentTransaction ft;
+    String screen = "home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 System.out.println("*** Name: " + contact.name);
                 Global.currentContact = contact;
+                screen = "detail";
                 ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.main , new DetailFragment());
                 ft.commit();
@@ -50,9 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = getIntent();
-        finish();
-        startActivity(intent);
+        if (screen == "detail"){
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
+        }else{
+            Intent startMain = new Intent(Intent.ACTION_MAIN);
+            startMain.addCategory(Intent.CATEGORY_HOME);
+            startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(startMain);
+        }
     }
 
     public void refreshList(){
