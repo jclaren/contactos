@@ -16,17 +16,18 @@ import com.example.robots.MainActivity;
 public class Contact {
     public String name;
     public String email;
+    public String username;
+    public String phone;
+    public String website;
 
-    public Contact(String _name, String _email) {
+    public Contact(String _name, String _email, String _username, String _phone, String _website) {
         this.name = _name;
         this.email = _email;
+        this.username = _username;
+        this.phone = _phone;
+        this.website = _website;
     }
 
-    public static ArrayList getCollection() {
-        ArrayList<Contact> collection = new ArrayList<>();
-        collection.add(new Contact("Joquin Claren", "joaquin.claren@desarrollomovil.cl"));
-        return collection;
-    }
     public static void injectContactsFromCloud(final QueueUtils.QueueObject o,
                                                final ArrayList<Contact> contacts,
                                                final MainActivity _interface) {
@@ -39,7 +40,13 @@ public class Contact {
                                 JSONArray list = response;
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
-                                    contacts.add(new Contact(o.getString("name"),  o.getString("email")));
+                                    contacts.add(new Contact(
+                                            o.getString("name"),
+                                            o.getString("email"),
+                                            o.getString("username"),
+                                            o.getString("phone"),
+                                            o.getString("website")
+                                    ));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
