@@ -10,7 +10,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.robots.Global;
 
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.view.View;
+
 public class DetailFragment extends DialogFragment {
+    TextView txt_name;
+    View vista;
+
     public DetailFragment() {
         // Required empty public constructor
     }
@@ -32,7 +40,10 @@ public class DetailFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false);
+
+        vista = (LinearLayout) inflater.inflate(R.layout.fragment_detail, container, false);
+        txt_name = vista.findViewById(R.id.detail_name);
+        txt_name.setText(Global.currentContact.name);
+        return vista;
     }
 }
