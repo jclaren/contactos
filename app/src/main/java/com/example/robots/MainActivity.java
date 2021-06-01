@@ -39,12 +39,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 Contact contact = (Contact) parent.getItemAtPosition(position);
-                System.out.println("*** Name: " + contact.name);
-                Global.currentContact = contact;
-                screen = "detail";
-                ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.main , new DetailFragment());
-                ft.commit();
+                openDetail(contact);
+
             }
         });
     }
@@ -62,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(startMain);
         }
+    }
+
+    void openDetail(Contact contact){
+        Global.currentContact = contact;
+        screen = "detail";
+        ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main , new DetailFragment());
+        ft.commit();
     }
 
     public void refreshList(){
