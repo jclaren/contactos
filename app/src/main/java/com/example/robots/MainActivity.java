@@ -1,6 +1,7 @@
 package com.example.robots;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Contact contact = (Contact) parent.getItemAtPosition(position);
                 System.out.println("*** Name: " + contact.name);
+
+                DetailFragment detailFragment = new DetailFragment();
+                detailFragment.show(getSupportFragmentManager(), "Detalle del contacto");
             }
         });
     }
