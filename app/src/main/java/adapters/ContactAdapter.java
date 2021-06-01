@@ -14,8 +14,8 @@ import models.Contact;
 public class ContactAdapter extends ArrayAdapter<Contact> {
     Context context;
     private class ViewHolder {
-        TextView first_name;
-        TextView last_name;
+        TextView name;
+        TextView email;
 
         private ViewHolder() {
         }
@@ -29,16 +29,16 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         final Contact rowItem = (Contact) getItem(position);
         LayoutInflater mInflater = (LayoutInflater) this.context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.robot_item, null);
+            convertView = mInflater.inflate(R.layout.contact_item, null);
             holder = new ViewHolder();
-            holder.first_name = (TextView) convertView.findViewById(R.id.first_name);
-            holder.last_name = (TextView) convertView.findViewById(R.id.last_name);
+            holder.name = (TextView) convertView.findViewById(R.id.list_name);
+            holder.email = (TextView) convertView.findViewById(R.id.list_email);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.first_name.setText(rowItem.name);
-        holder.last_name.setText(rowItem.email);
+        holder.name.setText(rowItem.name);
+        holder.email.setText(rowItem.email);
         return convertView;
     }
 }
