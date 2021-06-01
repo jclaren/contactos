@@ -28,7 +28,7 @@ public class Contact {
         return collection;
     }
     public static void injectContactsFromCloud(final QueueUtils.QueueObject o,
-                                               final ArrayList<Robot> contacts,
+                                               final ArrayList<Contact> contacts,
                                                final MainActivity _interface) {
         String url = "https://fipo.equisd.com/api/users.json";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -40,7 +40,7 @@ public class Contact {
                                 JSONArray list = response.getJSONArray("data");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
-                                    contacts.add(new Robot(o.getString("name"),  o.getString("email")));
+                                    contacts.add(new Contact(o.getString("name"),  o.getString("email")));
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

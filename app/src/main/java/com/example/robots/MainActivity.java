@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import java.util.ArrayList;
+
+import adapters.ContactAdapter;
 import adapters.RobotAdapter;
 import helpers.QueueUtils;
+import models.Contact;
 import models.Robot;
 
 public class MainActivity extends AppCompatActivity {
 
     ListView robotList;
-    RobotAdapter robotAdapter;
+    ContactAdapter contactAdapter;
     QueueUtils.QueueObject queue = null;
-    ArrayList<Robot> items;
+    ArrayList<Contact> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
         queue = QueueUtils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
         System.out.println("**** Inyectando ");
-        Robot.injectContactsFromCloud(queue, items, this);
-        robotAdapter = new RobotAdapter(this, items);
-        robotList.setAdapter(robotAdapter);
+        Contact.injectContactsFromCloud(queue, items, this);
+        contactAdapter = new ContactAdapter(this, items);
+        robotList.setAdapter(contactAdapter);
     }
     public void refreshList(){
-        if ( robotAdapter!= null ) {
-            robotAdapter.notifyDataSetChanged();
+        if ( contactAdapter!= null ) {
+            contactAdapter.notifyDataSetChanged();
         }
     }
 }
