@@ -20,13 +20,11 @@ public class MainActivity extends AppCompatActivity {
     QueueUtils.QueueObject queue = null;
     ArrayList<Contact> items;
     FragmentTransaction ft;
-    String screen = "home";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         contactList = findViewById(R.id.contactList);
         queue = QueueUtils.getInstance(this.getApplicationContext());
         items = new ArrayList<>();
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (screen != "home"){
+                if (!Global.homeScreen){
                     return;
                 }
                 Contact contact = (Contact) parent.getItemAtPosition(position);
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (screen == "detail"){
+        if (!Global.homeScreen){
             backHome();
         }else{
             minimizeApp();
@@ -59,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         finish();
         startActivity(intent);
+        Global.homeScreen = true;
     }
 
     void minimizeApp(){
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     void openDetail(Contact contact){
         Global.currentContact = contact;
-        screen = "detail";
+        Global.homeScreen = false;
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
         {
