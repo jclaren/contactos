@@ -32,7 +32,6 @@ public class DetailFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("*** Recibido el contacto de: " + Global.currentContact.name);
     }
 
     @Override
