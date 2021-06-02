@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)
         {
-            actionBar.setTitle("Ver Detalle");
+            actionBar.setTitle(R.string.detail_title);
         }
         ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main , new DetailFragment());
