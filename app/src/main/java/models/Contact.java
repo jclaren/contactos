@@ -3,7 +3,6 @@ package models;
 
 import java.util.ArrayList;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -12,8 +11,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import helpers.QueueUtils;
 
-import com.example.robots.Global;
-import com.example.robots.MainActivity;
+import com.example.contacts.Global;
+import com.example.contacts.MainActivity;
 
 public class Contact {
     public String name;

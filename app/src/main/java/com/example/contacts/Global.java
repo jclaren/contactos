@@ -1,4 +1,4 @@
-package com.example.robots;
+package com.example.contacts;
 
 import models.Contact;
 

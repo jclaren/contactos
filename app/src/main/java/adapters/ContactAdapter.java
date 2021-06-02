@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import java.util.List;
-import  com.example.robots.R;
 import models.Contact;
+import com.example.contacts.R;
 
 public class ContactAdapter extends ArrayAdapter<Contact> {
     Context context;

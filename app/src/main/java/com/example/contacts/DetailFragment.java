@@ -1,4 +1,4 @@
-package com.example.robots;
+package com.example.contacts;
 
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.contacts.R;
 
 public class DetailFragment extends DialogFragment {
     TextView txt_name;
