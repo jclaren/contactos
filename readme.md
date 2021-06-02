@@ -1,4 +1,4 @@
-### App de Contactos
+# App de Contactos
 
 ## Ahutor: Joaquin Claren
 
