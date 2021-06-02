@@ -1,8 +1,8 @@
 # App de Contactos
 
-## Ahutor: Joaquin Claren
+## Autor: Joaquin Claren
 
-# Descripcion
+### Descripción
 Aplicacion demo de android que lee informacion de contactos de https://jsonplaceholder.typicode.com/
 
 #Información del proyecto
