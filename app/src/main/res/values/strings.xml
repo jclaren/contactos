@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Contactos</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="detail_title">Detalle</string>
+    <string name="detail_title">Ver Detalle</string>
 </resources>
